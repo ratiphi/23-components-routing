@@ -10,7 +10,7 @@ class AboutContainer extends React.Component {
         <p>My name is Tim Turner.</p>
         <p>I am slowly beginning to understand this React stuff!</p>
       </div>
-    )
+    );
   }
 }
 

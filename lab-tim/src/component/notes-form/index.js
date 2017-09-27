@@ -1,27 +1,29 @@
+import './_notes-form.scss';
+
 import React from 'react';
 
 class NoteCreateForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       content: '',
-    }
+    };
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
       // price: someVal,
       // title: someOtherVal
-    })
+    });
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    this.props.handleNoteCreate(this.state)
+    e.preventDefault();
+    this.props.handleNoteCreate(this.state);
   }
 
   render() {
@@ -39,7 +41,7 @@ class NoteCreateForm extends React.Component {
 
         <button type="submit">Add note</button>
       </form>
-    )
+    );
   }
 }
 

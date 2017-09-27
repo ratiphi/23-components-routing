@@ -1,29 +1,29 @@
-// import './styles/main.scss'
+import './styles/main.scss';
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom'
-import AboutContainer from './component/about-container'
-import DashboardContainer from './component/dashboard-container'
+import {BrowserRouter, Route} from 'react-router-dom';
+import AboutContainer from './component/about-container';
+import DashboardContainer from './component/dashboard-container';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       notes: [],
-    }
-    this.getApp = this.getApp.bind(this)
+    };
+    this.getApp = this.getApp.bind(this);
   }
 
   componentDidUpdate() {
-    console.log('__STATE__', this.state.notes)
+    console.log('__STATE__', this.state.notes);
   }
 
   getApp() {
     return {
       state: this.state,
       setState: this.setState.bind(this),
-    }
+    };
   }
 
   render() {
@@ -32,8 +32,8 @@ class App extends React.Component {
         <header>
           <nav>
             <ul>
-              <li><a href="/">home</a></li>
-              <li><a href="/about">about</a></li>
+              <li><a href="/">Notes</a></li>
+              <li><a href="/about">About</a></li>
             </ul>
           </nav>
         </header>
@@ -46,8 +46,8 @@ class App extends React.Component {
           </BrowserRouter>
         </main>
       </div>
-    )
+    );
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'))
+ReactDom.render(<App />, document.getElementById('root'));
