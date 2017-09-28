@@ -13,9 +13,9 @@ class NoteList extends React.Component {
   render() {
     return (
       <div className="note-list">
-        {this.state.notes.length ?
+        {this.state.notesList.length ?
           <ul>
-            {this.state.notes
+            {this.state.notesList
               .map(item => <li key={item.id}>Note: {item.content}</li>)}
           </ul> :
           <h2>There are no notes</h2>
