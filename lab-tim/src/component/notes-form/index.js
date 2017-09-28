@@ -1,12 +1,16 @@
 import './_notes-form.scss';
 
 import React from 'react';
+import uuid from 'uuid/v4';
 
 class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: uuid(),
       content: '',
+      editing: false,
+      completed: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,15 +20,24 @@ class NoteCreateForm extends React.Component {
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
-      // price: someVal,
-      // title: someOtherVal
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleNoteCreate(this.state);
+    this.props.app.setState(prevState => ({
+      notes: [...prevState.notes, this.state],
+    }));
   }
+  // 
+  // noteCreate(note) {
+  //   note.id = uuid();
+  //   note.editing = false;
+  //   note.completed = false;
+  //   this.props.app.setState(prevState => ({
+  //     notes: [...prevState.notes, note],
+  //   }));
+  // }
 
   render() {
     return (
@@ -35,11 +48,11 @@ class NoteCreateForm extends React.Component {
         <input
           type="text"
           name="content"
-          placeholder="Enter note here"
+          placeholder=" ... "
           value={this.state.content}
           onChange={this.handleChange}/>
 
-        <button type="submit">Add note</button>
+        <button type="submit">add note</button>
       </form>
     );
   }

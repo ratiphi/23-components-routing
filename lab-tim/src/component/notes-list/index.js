@@ -6,16 +6,17 @@ class NoteList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      noteList: this.props.notes.map(item => <li key={item.id}>Note: {item.content}</li>),
+      noteList: this.props.app.state.notes,
     };
   }
 
   render() {
     return (
       <div className="note-list">
-        {this.state.noteList ?
+        {this.state.notes.length ?
           <ul>
-            {this.state.noteList}
+            {this.state.notes
+              .map(item => <li key={item.id}>Note: {item.content}</li>)}
           </ul> :
           <h2>There are no notes</h2>
         }
